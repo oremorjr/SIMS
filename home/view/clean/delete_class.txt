@@ -1,0 +1,7 @@
+   <tr id="list-<?php echo $v1;?>">
+delete_class.php add slug
+
+
+edit_class
+n1_edited for input text
+<td class="n1-<?php echo $v1;?>"> for reference record

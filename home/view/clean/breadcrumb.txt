@@ -1,0 +1,19 @@
+ <ol class="breadcrumb">
+  <li><a href="?page=index">Home</a></li>
+  <li><a href="?page=transaction">Transactions</a></li>
+  <li><a href="?page=search-customer">Customer List</a></li>
+    <li><a href="?page=account-list&CID=<?php echo $CID;?>">Account Ledger</a></li>
+  <li class="active">Accounts Payable Ledger </li>
+</ol>
+
+ <ol class="breadcrumb mb-0">
+  <li><a href="?page=index">Home</a></li> 
+  <li class="active">Items</li>
+</ol>
+
+
+ <ol class="breadcrumb mb-0">
+  <li><a href="?page=index">Home</a></li> 
+  <li> Tools</li> 
+  <li class="active">User Group Page Access  </li>
+</ol>

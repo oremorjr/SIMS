@@ -1,0 +1,85 @@
+<?php
+$slug='product';
+
+$class1=new product();
+$query="SELECT * from osd_product INNER JOIN osd_category ON (p_category_id=cat_code) where p_code='$pid' ";
+$class1->select_list($query);
+
+$class2=new product_list();
+$query="SELECT * from osd_product INNER JOIN osd_category ON (p_category_id=cat_code) where p_code='$pid' ";
+?>
+      <div id="content">
+			<div id="breadcrumb2">
+				<ul class="crumbs">
+					<li class="first"><a href="?page=dashboard" style="z-index:9;"><span></span>Dashboard</a></li>
+					<li><a href="?page=choose-supplier" style="z-index:8;">Supplier</a></li>
+					<li><a href="?page=choose-category&SID=<?php echo $sid;?>" style="z-index:7;">Category</a></li>
+					<li><a href="#" style="z-index:6;">Product</a></li>
+				</ul>
+			</div>		  
+        <div class="outer">
+          <div class="inner">
+	  
+		   <div class="col-lg-12">
+            <div class="row">
+			  <a href="?page=add-product&SID=<?php echo $sid;?>&CID=<?php echo $cid;?>" class="btn btn-success btn-lg btn-grad btn-rect">Add <?php echo $slug;?></a>
+                <div class="box">
+                  <header>
+                    <div class="icons">
+                      <i class="fa fa-table"></i>
+                    </div>
+                    
+                  </header>
+                  <div id="collapse4" class="body">
+					<table class="table table-bordered table-condensed table-hover table-striped">
+                      <thead>
+                        <tr>
+                          <th>Product Name</th>
+                          <th>Category</th>						  
+                        </tr>
+                      </thead>
+                      <tbody>
+                      <tr>
+						<td><?php echo $class1->name;?></td>
+						<td><?php echo $class1->cat_name;?></td>
+					  </tr>
+ 
+                      </tbody>					  
+					</table>
+                    <table id="dataTable" class="table table-bordered table-condensed table-hover table-striped">
+                      <thead>
+                        <tr>
+                          <th colspan="10" class="text-center"><h4>Product Unit</h4></th>				  
+                        </tr>
+                      </thead>					
+                      <thead>
+                        <tr>
+                          <th><?php echo $slug;?> Code</th>
+                          <th><?php echo $slug;?> Name</th>						  
+                        </tr>
+                      </thead>
+                      <tbody>
+                       <?php $class2->select($query);?>
+ 
+                      </tbody>
+                    </table>
+					<div>Total : <?php echo $class1->t_count;?> <?php echo plural($class1->t_count);?> found</div>
+                  </div>
+                </div>
+              </div>
+            </div><!-- /.row -->
+          </div>
+
+          <!-- end .inner -->
+        </div>
+
+        <!-- end .outer -->
+      </div>
+
+      <!-- end #content -->
+    <script src="assets/lib/jquery.min.js"></script>
+    <script src="assets/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/style-switcher.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+
+ 

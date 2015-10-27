@@ -1,0 +1,52 @@
+
+
+var slug="lock-receipt";
+var CID="<?php echo $CID;?>";
+var TID="<?php echo $TID;?>";
+
+$("#finalize_receipt").click(function(){
+
+  $.ajax({
+    data:{page:slug, CID:CID, TID:TID},
+    url:'../home/view/view-result/edit-form/auth_payment.php',
+    success:function(data){
+      $("#auth").html(data);
+      auth_event_unlock();
+    }
+
+  });
+
+
+});
+
+function auth_event_unlock(){
+$("#pwd").keyup(function(){
+
+var empid="<?php echo get_employeee_id();?>"; 
+var pwd=$(this).val();
+
+auth(slug,empid, pwd, TID );
+
+});
+
+
+}
+
+function auth(slug,empid, pwd, ID){
+ 
+  $.ajax({
+    data: {TID:TID, page: slug, empid:empid, pwd:pwd},
+    url:'../include/function/add_class.php',
+    success:function(data){
+  $(".edit-area").html(data); 
+    var ar=$(".result-ar").attr('id');
+  if(ar==1){
+  window.location="?page=edit-pos&ID="+CID+"&TID="+TID;
+  }
+
+    }
+
+
+  });
+
+}  

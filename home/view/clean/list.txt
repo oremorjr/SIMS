@@ -1,0 +1,6 @@
+<ul class="list-group" style="margin-bottom:5px;">
+  <li class="list-group-item">Transaction No.: <strong id="loading-tno">#</strong></li>
+  <li class="list-group-item">Account Name : <strong><?php echo $account_name; ?></strong></li>
+  <li class="list-group-item">Payment applied to : <strong><a href="#" class="show_receipt"  data-toggle="modal" data-target="#myModal"   id="<?php echo $TID;?>"><?php echo $receipt_no;?></a></strong></li>
+ 
+</ul>

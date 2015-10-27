@@ -1,0 +1,17 @@
+   <select class="form-control " id="sy" >
+
+  <?php
+$rows=osd_query("osd_transaction", $where="t_mode=1 and t_active=0", "YEAR(t_transaction_date)");
+$ynow=date('Y');
+echo '<option value='.$ynow.'>--Select Year--</option>';
+echo '<option value='.$ynow.'>'.$ynow.'</option>';
+foreach($rows as $row){
+$ty=$row['t_transaction_date'];
+$y_ty=date('Y', strtotime($ty));
+if($y_ty!=$ynow):
+echo '<option value='.$y_ty.'>'.$y_ty.'</option>';
+endif;
+} 
+?>
+
+   </select>

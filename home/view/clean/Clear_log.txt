@@ -1,0 +1,1 @@
+DELETE FROM osd_log WHERE TIMESTAMPDIFF(DAY,l_date_time,NOW())>=10;

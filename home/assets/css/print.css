@@ -1,0 +1,168 @@
+@media print {
+
+
+	body {
+		font-size: 12px;
+		padding: 0;
+		margin: 0;
+	}
+	table tr td {
+		font-size: 12px;
+	}
+	.item {
+		border-right: 1px solid #000;
+		padding: 3px 0px;
+	}
+	.item-last {
+		border-right: none;
+		padding: 3px 0px;
+	}
+}
+#receipt-form {
+	width: 100%;
+	margin: auto;
+	padding-bottom: 30px;
+}
+	body {
+		font-size: 12px;
+		padding: 0;
+		margin: 0;
+		 
+	}
+.text-right{
+	text-align: right;
+	padding-right: 5px !important;
+}
+table tr td {
+	font-size: 12px;
+	font-family: "Arial";
+	color: #4f4f4f;
+	font-weight: normal; 
+}
+.bold {
+	font-weight: bold;
+}
+.t-center {
+	text-align: center;
+}
+.f-20 {
+	font-size: 18px
+}
+.ptop1 {
+    padding-top: 10px;
+    font-size: 13px;
+    font-weight: bold;
+}
+.b-line {
+	border-bottom: 1px dashed #000;
+}
+.b-line-2 {
+	border-bottom: 1px solid #000;
+}
+.b-line-3 {
+	border-bottom: 2px solid #000;
+}
+.b-line-4 {
+	border-top: 1px solid #000;
+}
+.col-2 {
+	width: 20%;
+}
+.col-3 {
+	width: 30%;
+}
+.col-7 {
+	width: 70%;
+}
+.col-8 {
+	width: 80%;
+}
+.p-1 {
+	padding: 10px 0px;
+	border-right: 1px solid #000;
+	text-align: center;
+}
+.p-2 {
+	padding: 10px 0px;
+	text-align: center;
+}
+.item {
+	border-right: 1px solid #000;
+	padding: 4px 0;
+}
+.item-last {
+	border-right: none;
+	padding: 3px 0px;
+}
+.left {
+	text-align: left;
+	padding-left: 10px;
+}
+.right {
+	text-align: right;
+	padding-right: 10px;
+}
+.info {
+	padding: 2px 0px;
+}
+.right-2 {
+	padding-right: 15px;
+	text-align: right;
+}
+.total-view {
+	font-weight: bold;
+	font-size: 13px;
+	border-top: 1px solid #000;
+	border-bottom: 1px solid #000;
+	border-right: 1px solid #000;
+	text-align: right;
+	padding:5px 10px;
+}
+.total-value {
+border-top: 1px solid #000;
+border-bottom: 1px solid #000;
+padding-right: 10px;
+text-align: right;
+font-size: 13px;
+font-weight: bold;
+}
+.terms{
+	padding: 5px 0;
+border-bottom: 1px solid #000;
+font-size: 9px;
+font-weight: normal !important;
+}
+#footer tr td {
+ padding: 3px 0;
+}
+.discount{
+float:right;padding-right:10px; 
+}
+
+.return {
+border-top: 1px solid;
+border-bottom: 1px solid;
+padding: 4px 0;
+}
+
+#footer-table tr td, #ledger tr td, #ledger-footer tr td {
+padding: 3px 0;
+}
+
+th.right {
+font-family: Arial;
+font-size: 12px;
+border-bottom: 1px solid;
+border-spacing: 0;
+padding:4px 0;
+ 
+}
+table#ledger-footer {
+border-top: 1px solid;
+/* padding-top: 5px; */
+/* margin-top: 5px; */
+}
+.receipt_area{
+float: left;
+width: 100%;
+}

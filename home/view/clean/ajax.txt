@@ -1,0 +1,17 @@
+function item_summary(tid){
+  // reset();
+  $("#transaction_details_ledger").html('<div class="col-lg-12 loading-img"><img src="../images/loading-long.gif"></div>');
+  var mode='1';
+  var empid="<?php echo get_employeee_id();?>";
+  //console.log(tid);
+  $("#show-btn").removeAttr("disabled", "disabled");
+  // $("#loading-cart").load("?tid="+tid + "&mode=1").fadeIn(); 
+  $.ajax({
+    data:{tid:tid, mode:mode, empid:empid},
+    url:'../include/function/pos/cart_summary_custom.php',
+    success:function(data){
+      $("#transaction_details_ledger").html(data);
+    }
+  });
+
+}

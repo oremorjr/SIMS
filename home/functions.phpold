@@ -1,0 +1,147 @@
+<?php
+
+function computeDiscountLess($dp, $p, $qty){
+$bp=$p*$qty;
+$c=count($dp);
+
+$sub=0;
+for($i=0;$i<$c;$i++){
+$disc=$dp[$i]/100;
+if($i==0): $sub=$bp-($bp*$disc); endif; if($i>0): $sub=$sub-($sub*$disc); endif;
+}
+return $sub;    
+}
+
+
+
+function computeDiscountAdd($dp, $p, $qty){
+$bp=$p*$qty;
+$c=count($dp);
+
+$sub=0;
+for($i=0;$i<$c;$i++){
+$disc=$dp[$i]/100;
+if($i==0): $sub=$bp+($bp*$disc); endif; if($i>0): $sub=$sub+($sub*$disc); endif;
+}
+return $sub;    
+}
+
+
+function Discount($disc_rate, $disc_status){
+
+  if($disc_status==0){ 
+    if($disc_rate!=''): echo 'L '; endif;
+    $discounts = explode(',', $disc_rate);  
+    $last = end($discounts);
+    $count=count($discounts);
+    $index="";
+
+    foreach($discounts as $discount){
+     $index++;
+    
+     if($index != $count)   {
+      echo $discount.'%, ';
+     }else{
+      if($discount!="")
+       echo $last.'%';    
+     }
+      
+
+    } 
+   
+  }
+
+
+
+
+  if($disc_status==1){
+  echo '+';
+  $discounts = explode(',', $disc_rate);  
+  $last = end($discounts);
+  $count=count($discounts);
+  $index="";
+   
+  foreach($discounts as $discount){
+    $index++;
+    if($index!=$count){
+      echo $discount.'%, ';
+    }else{
+      if($discount!="")
+      echo $last.'%';
+    }
+  } 
+  ?>    
+     
+  <?php
+  } 
+}
+
+
+
+function pabs_query($field,$table,$whereField, $column){
+$cur=mysql_query("SELECT $field from $table where $whereField='$column' ") or die(mysql_error());
+if($res=mysql_fetch_array($cur)):
+return $res[$field];
+endif;
+}
+
+
+
+
+function osd_query($table,$where='', $group=''){
+if($where!=""){
+$where='where '.$where;
+}
+if($group!=""){
+$group='GROUP BY  '.$group;
+}
+
+$cur=mysql_query("SELECT * from $table $where $group") or die(mysql_error());
+$rows=array();
+while($res=mysql_fetch_array($cur)):
+$rows[]=$res;
+endwhile;
+
+return $rows;
+
+}
+
+// $rows=osd_query('osd_transaction',$where,$group);
+
+// foreach($rows as $row){
+// $a=$row['t_transaction_date'];
+// }
+
+ 
+
+function page_privelege($position){
+
+if(isset($_GET['page'])){
+$pageName = $_GET['page'];
+}else{
+ $pageName = 'index';
+}
+
+
+$userposition1=pabs_query('p_posname','osd_position','p_posid', $position);
+
+
+$rows=osd_query('osd_access',$where="a_posid='$position'", $group='');
+foreach($rows as $row){
+
+$pageid=$row['a_pageid'];
+$pagename=pabs_query('p_pagename','osd_page','p_pageid', $pageid);
+
+// echo $pagename.'<br>';
+}
+
+ 
+
+}
+
+
+function get_current_position(){
+  return $_SESSION['SESS_MEMBER_UID'];
+}
+
+?>

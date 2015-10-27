@@ -1,0 +1,18 @@
+      <div class="print print-report none"><i class="glyphicon glyphicon-print"></i> Print</div>
+
+<script>
+$(document).ready(function() {  
+	$('.year').hide();
+	$('.print-report').click(function(){
+		window.print();
+	});
+ 
+}); 
+</script> 
+ 
+
+
+<div class="col-lg-12">
+      <div class="print print-report none"><i class="glyphicon glyphicon-print"></i> Print</div>
+
+</div>

@@ -1,0 +1,36 @@
+<span class="none">
+  <?php
+$lock=transaction_lock_status($t_id);
+if($lock==1  ){
+echo '  <img src="../images/snk-lock.png" width="13" class="right snk-unlock">';
+}
+
+if($lock==0 && current_user('edit-receipt')){
+echo '<a target="_blank" href="?page=edit-pos&ID='.$CID.'&TID='.$t_id.'"><img src="../images/snk-unlock.png" width="13" class="right snk-unlock"></a>';
+
+}
+  ?>
+
+  <?php
+if(current_user('add-payment')):
+  ?>
+  <a href="?page=account-receivable&CID=<?php echo $CID?>&TID=<?php echo $t_id;?>" class="manageledgerbtn btn btn-success" title="Add Payment"><i class="glyphicon glyphicon-plus"></i></a> 
+ <?php endif; ?>
+
+ <?php
+if(current_user('view-customer-ledger')):
+ ?>
+  <a href="?page=account-ledger&CID=<?php echo $CID?>&TID=<?php echo $t_id;?>" class="manageledgerbtn btn btn-primary" title="Ledger"><i class="glyphicon glyphicon-th-list"></i></a>
+<?php endif;?>
+  
+</span>
+
+
+
+         <?php
+         if($mode==1){
+        edit_sales_receipt($tid, $CID);
+         }elseif($mode==2){
+        edit_po_receipt($tid, $SID);
+         }
+         ?>
